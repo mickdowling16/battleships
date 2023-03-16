@@ -22,7 +22,9 @@ def print_board(board, user):
         print("%d|%s|" % (row_number, "|".join(row)))
         row_number += 1
 
+def run_game():
+    welcome_message()
+    print_board(COMPUTER_BOARD, "COMPUTER")
+    print_board(PLAYER_BOARD, "YOUR")
 
-welcome_message()
-print_board(COMPUTER_BOARD, "COMPUTER")
-print_board(PLAYER_BOARD, "YOUR")
+run_game()
