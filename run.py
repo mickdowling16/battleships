@@ -38,6 +38,13 @@ class Board:
             if self.type == "player":
                 self.board[x][y] = "@"
 
+
+def populate_board(board):
+    """
+    Populates game boards for computer and player
+    """
+    
+
 def new_game():
     """
     Starts new game and sets board size and number of ships
