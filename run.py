@@ -20,7 +20,7 @@ class Board:
         for x in self.board:
             print(" ".join(x))
 
-    def guesses(self, x, y)
+    def guesses(self, x, y):
         self.guesses.append((x, y))
         self.board[x][y] = "X"
 
@@ -29,3 +29,34 @@ class Board:
             return "Hit"
         else:
             return "Missed"
+
+    def add_ships(self, x, y, type="computer"):
+        if len(self.ships) >= self.number_ships:
+            print("Error: You cannot add more ships")
+        else:
+            self.ships.append((x, y))
+            if self.type == "player":
+                self.board[x][y] = "@"
+
+def play_game():
+    """
+    Starts new game and sets board size and number of ships
+    """
+    size = 5
+    number_ships = 4
+    scores["computer"] = 0
+    scores["player"] = 0
+    print("Welcome to Battleships. The aim of the game is the sink all the enemy ships")
+    print("Here is the game legend\n")
+    print(f"Number of ships = {number_ships}")
+    print("Direct Hit = *")
+    print("Miss = X")
+    print("Ships = @")
+    print("The top left corner is row: 0 column: 0")
+    print("----------\n")
+    player_name = input("Please Enter Your Name: \n")
+
+    computer_board = Board(size, number_ships, "Computer", type="computer")
+    player_board = Board(size, number_ships, player_name, type="player")
+
+play_game()
