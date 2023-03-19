@@ -38,7 +38,7 @@ class Board:
             if self.type == "player":
                 self.board[x][y] = "@"
 
-def play_game():
+def new_game():
     """
     Starts new game and sets board size and number of ships
     """
@@ -59,4 +59,11 @@ def play_game():
     computer_board = Board(size, number_ships, "Computer", type="computer")
     player_board = Board(size, number_ships, player_name, type="player")
 
-play_game()
+    for _ in range(number_ships):
+        populate_board(player_board)
+        populate_board(computer_board)
+
+    play_game(computer_board, player_board)
+
+
+new_game()
