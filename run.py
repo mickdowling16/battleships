@@ -1,31 +1,21 @@
-import random
+from random import randint
 
-LENGTH_OF_SHIPS = [2,3,3,4,5]  
-PLAYER_BOARD = [[" "] * 8 for i in range(8)]
-COMPUTER_BOARD = [[" "] * 8 for i in range(8)]
-PLAYER_GUESS_BOARD = [[" "] * 8 for i in range(8)]
-COMPUTER_GUESS_BOARD = [[" "] * 8 for i in range(8)]
-LETTERS_TO_NUMBERS = {'A':0, 'B':1, 'C':2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7}
+scores = {"computer": 0, "player": 0}
 
-def welcome_message():
-    print('Welcome to Battleships...\n')
-    print("The aim of the game is to sink the computer's ships before they sink yours. Pick a row and column to make your guess...\n")
-    player_name = input("Please enter your name here:\n")
-    print("----------\n")
+class Board:
+    """
+    Main board class. sets board size, number of ships and board type
+    """
 
-def print_board(board, user):
-    print(f"{user} GAME BOARD")
-    print("  A B C D E F G H")
-    print("  +-+-+-+-+-+-+-+")
-    row_number = 1
-    for row in board:
-        print("%d|%s|" % (row_number, "|".join(row)))
-        row_number += 1
+    def __init__(self, size, number_ships, name, type):
+        self.size = size
+        self.number_ships = number_ships
+        self.board = [["." for x in range(size)] for y in range(size)]
+        self.name = name
+        self.type = type
+        self.guesses = []
+        self.ships = []
 
-def run_game():
-    welcome_message()
-    print_board(COMPUTER_BOARD, "COMPUTER")
-    print("----------\n")
-    print_board(PLAYER_BOARD, "YOUR")
-
-run_game()
+    def print_board(self):
+        for x in self.board:
+            print(" ".join(x))
