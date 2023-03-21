@@ -51,9 +51,9 @@ def validate_coordinates(x, y, board):
 
 def populate_board(board):
     """
-    Populates game boards for computer and player
+    Populates game boards for computer
     """
-
+ 
 def make_guess(board):
     """
     Allows users to input they're guesses
