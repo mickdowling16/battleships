@@ -38,12 +38,31 @@ class Board:
             if self.type == "player":
                 self.board[x][y] = "@"
 
+def random_point(size):
+    """
+    Helper function to return random point
+    """
+    return randomint(0, size - 1)
+
+def validate_coordinates(x, y, board):
+    """
+    Validates coordinates given and returns error if invalid value given
+    """
 
 def populate_board(board):
     """
     Populates game boards for computer and player
     """
-    
+
+def make_guess(board):
+    """
+    Allows users to input they're guesses
+    """
+
+def play_game(computer_board, player_board):
+    """
+    The main play game function
+    """
 
 def new_game():
     """
